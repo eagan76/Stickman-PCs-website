@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang=3D"en">
+<head>
+    <meta charset=3D"UTF-8">
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D=
+1.0">
+    <title>Stickman PCs - Custom PC Builder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: linear-gradient(to right, yellow, #7d7d7d); /* Gradi=
+ent from yellow to medium gray */
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-family: 'Crimson Pro', serif;
+            font-size: 2em;
+        }
+        header a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        .container {
+            padding: 20px;
+            margin: 20px;
+        }
+        .container h2 {
+            font-size: 1.8em;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        button {
+            background-color: yellow;
+            border: none;
+            color: #000;
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #e0e000;
+        }
+        .footer-text {
+            margin-top: 20px;
+        }
+        .note {
+            font-size: 0.9em;
+            color: #ccc;
+        }
+    </style>
+    <script>
+        function sendEmail() {
+            const name =3D document.getElementById('name').value;
+            const phone =3D document.getElementById('phone').value;
+            const email =3D document.getElementById('email').value;
+            const contactMethod =3D document.getElementById('contact-method'=
+).value;
+            const pcPartPickerLink =3D document.getElementById('pc-part-pick=
+er-link').value;
+            const modelParts =3D document.getElementById('model-parts').valu=
+e;
+            const issueDescription =3D document.getElementById('issue -descr=
+iption').value;
+            const location =3D document.getElementById('location').value;
+
+            const subject =3D 'New Custom PC Request';
+            const body =3D `Name: ${name}\nPhone: ${phone}\nEmail: ${email}\=
+nPreferred Contact Method: ${contactMethod}\nPC Part Picker Link: ${pcPartPi=
+ckerLink}\nModel/Parts Details: ${modelParts}\nDescription of the Issue: ${i=
+ssueDescription}\nLocation: ${location}`;
+
+            window.location.href =3D `mailto:you@example.com?subject=3D${enc=
+odeURIComponent(subject)}&body=3D${encodeURIComponent(body)}`;
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Stickman PCs</h1>
+        <div>
+            <a href=3D"https://youtube.com/@stickmanpcs?si=3DwqvJYMo74HaaxM5=
+f">YouTube</a> |=20
+            <a href=3D"https://x.com/stickmanpcs?s=3D11">Twitter/X</a>
+        </div>
+    </header>
+    <div class=3D"container">
+        <h2>Custom PC Builder</h2>
+        <form onsubmit=3D"event.preventDefault(); sendEmail();">
+            <label for=3D"pc-part-picker-link">Paste PC Part Picker List Lin=
+k:</label>
+            <input type=3D"text" id=3D"pc-part-picker-link" name=3D"pc-part-=
+picker-link" required>
+            <p class=3D"note">You may just insert a PC Part Picker link and w=
+e can view that or you can paste all the items into our PC builder.</p>
+
+            <label for=3D"model-parts">Model/Parts Details:</label>
+            <input type=3D"text" id=3D"model-parts" name=3D"model-parts" req=
+uired>
+
+            <label for=3D"issue-description">Description of the Issue:</labe=
+l>
+            <textarea id=3D"issue-description" name=3D"issue-description" re=
+quired></textarea>
+
+            <label for=3D"phone">Phone Number:</label>
+            <input type=3D"tel" id=3D"phone" name=3D"phone">
+
+            <label for=3D"email">Email:</label>
+            <input type=3D"email" id=3D"email" name=3D"email" required>
+
+            <label for=3D"contact-method">Preferred Contact Method:</label>
+            <select id=3D"contact-method" name=3D"contact-method" required>
+                <option value=3D"email">Email</option>
+                <option value=3D"text">Text</option>
+            </select>
+            <p class=3D"note">If you select "Text" and provide your phone nu=
+mber, we will text you instead of emailing you. When you press send, it will=
+ still send an email, but we will reply via text if you provided a phone num=
+ber.</p>
+
+            <label for=3D"location">Location:</label>
+            <select id=3D"location" name=3D"location" required>
+                <option value=3D"us">United States (Free Shipping)</option>
+                <option value=3D"international">International (Shipping fees=
+ vary)</option>
+            </select>
+            <p class=3D"note">If you choose to mail in your electronic, you w=
+ill pay for shipping. If you are in the United States, we will ship it back f=
+or free.</p>
+
+            <label for=3D"name">Name:</label>
+            <input type=3D"text" id=3D"name" name=3D"name" required>
+
+            <button type=3D"submit">Send Email</button>
+            <p class=3D"footer-text">Your price will be calculated and we wi=
+ll send you a quote in 1 to 3 business days. If you are in the immediate are=
+a around our business, you will not have to ship it and can drop it off at o=
+ur location.</p>
+        </form>
+    </div>
+</body>
+</html>
+Vs 1.0.0=
